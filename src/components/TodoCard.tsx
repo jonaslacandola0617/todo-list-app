@@ -45,7 +45,7 @@ export default function TodoCard({ todo }: { todo: ITodo }) {
   }
 
   return (
-    <Card className="flex flex-row items-center">
+    <Card className="grid grid-cols-[4rem_1fr_0.15fr] items-center">
       <CardHeader className="max-w-1">
         <Checkbox
           checked={isCompleted}
@@ -63,7 +63,13 @@ export default function TodoCard({ todo }: { todo: ITodo }) {
               : "bg-red-500"
           }`}
         ></Badge>
-        <p className={isCompleted ? "dark:text-gray-600" : ""}>{todo.title}</p>
+        <p
+          className={`text-sm lg:text-base ${
+            isCompleted ? "dark:text-gray-600" : ""
+          }`}
+        >
+          {todo.title}
+        </p>
       </CardContent>
       <CardFooter>
         <Button variant="ghost" onClick={onArchived}>
